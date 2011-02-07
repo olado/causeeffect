@@ -95,11 +95,11 @@
 			if (isNaN(causes)) {
 				index = arguments.length-1;
 				if (typeof arguments[index] === 'boolean') {
-					orop = arguments[index];
 					causes = Array.prototype.slice.call(arguments, 1, index);
+					orop = arguments[index];
 				} else {
-					orop = undefined;
 					causes = Array.prototype.slice.call(arguments, 1);
+					orop = undefined;
 				}
 			} else {
 				//ticker case
@@ -149,17 +149,17 @@
 	}
 
 	CauseEffect.prototype.removeEvents = function(events/*, event2,...*/, dontwipe) {
-		var args, count, i, event, item;
+		var args, count, i, event, item, donotwipe = dontwipe;
 		if (isArray(events)) {
 			args = events;
 		} else {
 			i = arguments.length-1;
 			if (typeof arguments[i] === 'boolean') {
-				dontwipe = arguments[i];
 				args = Array.prototype.slice.call(arguments, 0, i);
+				donotwipe = arguments[i];
 			} else {
-				dontwipe = undefined;
 				args = arguments;
+				donotwipe = undefined;
 			}
 		}
 
@@ -169,10 +169,10 @@
 			event = this.events[item];
 			if (event) {
 				if (event.$or) {
-					cleanupRelatedEvents.call(this, item, event.$or, dontwipe);
+					cleanupRelatedEvents.call(this, item, event.$or, donotwipe);
 				}
 				if (event.$and) {
-					cleanupRelatedEvents.call(this, item, event.$and, dontwipe);
+					cleanupRelatedEvents.call(this, item, event.$and, donotwipe);
 				}
 				delete this.events[item];
 			}
