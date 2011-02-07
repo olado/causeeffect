@@ -15,6 +15,9 @@ environments like nodejs.
 	To run example:
 		node examples/sample.js
 
+Installation:
+	npm install causeeffect
+
 Usage:
 	To setup a rule where an event will fire if all of the causes happen:
 		ce.setEvents("myevent", ["cause1", "cause2", "cause3"]);
