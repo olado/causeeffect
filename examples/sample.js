@@ -14,7 +14,8 @@ ce.on("alldone", function() {
 	console.log("All done: cause1:" +
 		ce.getState("cause1")	+ " cause2: " +
 		ce.getState("cause2")	+ " cause3: " +
-		ce.getState("cause3"));
+		ce.getState("cause3")   + " myticker: " +
+		ce.getState("myticker"));
 });
 
 ce.on("somedone", function() {
@@ -25,23 +26,24 @@ ce.on("somedone", function() {
 });
 
 ce.on("myticker", function() {
-	console.log("Ticker ran out");
+	console.log("Ticker completes");
 });
 
-console.log("set state cause1");
+console.log("> ce.setState('cause1', 11)");
 ce.setState("cause1", 11);
 
-console.log("set state cause3");
-ce.setState("cause3", 13);
+console.log("> ce.setState('cause3')");
+ce.setState("cause3");
 
-console.log("set state cause2");
+console.log("> ce.setState('cause2', 12)");
 ce.setState("cause2", 12);
 
 function callback() {
+	console.log("> ce.setState('myticker')");
 	ce.setState("myticker");
 }
 
-console.log("triggering myticker");
+console.log("Triggering myticker. current value: " + ce.getState("myticker"));
 for(var i = 0; i< 4; i++) {
 	setTimeout(callback, 100);
 }

@@ -29,7 +29,11 @@ Usage:
 		ce.on("myevent", callback);
 
 	To let CauseEffect know that the cause has happened call:
-		ce.setState("cause1", 1)
+		ce.setState("cause1");
+	or if you need a specific value use
+		ce.setState("cause1", value);
+	This value can be then obtained from your event callback with:
+		ce.getState("cause1")
 
 	To run example:
 		node examples/sample.js
@@ -66,7 +70,7 @@ Sample:
 
 
 	// To let CauseEffect know that the cause has happened 
-	ce.setState("cause1", 1);
-	ce.setState("cause2", 1);
+	ce.setState("cause1");
+	ce.setState("cause2");
 
 

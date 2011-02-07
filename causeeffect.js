@@ -54,6 +54,9 @@
 	}
 
 	CauseEffect.prototype.setState = function(event, state) {
+		if (arguments.length === 1) {
+			state = 1;
+		}
 		if (!this.events[event]) {
 			this.events[event] = { $state : state };
 		} else {
