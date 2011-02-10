@@ -3,7 +3,7 @@
 * Copyright 2011, Laura Doktorova
 * http://github.com/olado/causeeffect
 *
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Licensed under the MIT license.
 *
 * Version: 0.1.0
 */
