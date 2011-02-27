@@ -10,7 +10,7 @@
     "util",
     "utility"
   ],
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": 'causeeffect',
   "homepage": "http://github.com/olado/causeeffect",
   "repository": "git://github.com/olado/causeeffect.git",

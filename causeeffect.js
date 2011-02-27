@@ -54,13 +54,10 @@
 	}
 
 	CauseEffect.prototype.setState = function(event, state) {
-		if (arguments.length === 1) {
-			state = 1;
-		}
 		if (!this.events[event]) {
-			this.events[event] = { $state : state };
+			this.events[event] = { $state : (arguments.length === 1) ? 1 : state };
 		} else {
-			var e, t = this.events[event], eff = t.$effects;
+			var t = this.events[event];
 			if (t.$counter) {
 				t.$counter -= 1;
 				if (t.$counter === 0) {
@@ -68,11 +65,12 @@
 				}
 				return;
 			} else {
-				t.$state = state;
+				t.$state = (arguments.length === 1) ? 1 : state ;
 			}
 
+			var eff = t.$effects;
 			if (eff) {
-				for(e in eff) {
+				for(var e in eff) {
 					if (eff.hasOwnProperty(e)) {
 						evalCauses.call(this, e);
 					}
@@ -93,21 +91,24 @@
 
 	CauseEffect.prototype.setEvents = function(effect, causes, orop) {
 		this.events[effect] = this.events[effect] || {};
+
+		if (!isNaN(causes)) {
+			//ticker case
+			this.events[effect].$counter = causes;
+			return;
+		}
+
+
 		var index, self, i, cause;
+
 		if (!isArray(causes)) {
-			if (isNaN(causes)) {
-				index = arguments.length-1;
-				if (typeof arguments[index] === 'boolean') {
-					causes = Array.prototype.slice.call(arguments, 1, index);
-					orop = arguments[index];
-				} else {
-					causes = Array.prototype.slice.call(arguments, 1);
-					orop = undefined;
-				}
+			index = arguments.length-1;
+			if (typeof arguments[index] === 'boolean') {
+				causes = Array.prototype.slice.call(arguments, 1, index);
+				orop = arguments[index];
 			} else {
-				//ticker case
-				this.events[effect].$counter = causes;
-				return;
+				causes = Array.prototype.slice.call(arguments, 1);
+				orop = undefined;
 			}
 		}
 
