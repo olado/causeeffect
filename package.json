@@ -1,21 +1,11 @@
 {
   "name": "causeeffect",
   "description": "Evented rules for nodejs - flow management simplified",
-  "tags": [
-    "event",
-    "events",
-    "simple",
-    "flow",
-    "parallel",
-    "util",
-    "utility"
-  ],
-  "version": "0.1.2",
-  "main": 'causeeffect',
+  "keywords": [ "event", "events", "simple", "flow", "parallel", "util", "utility"],
+  "version": "0.1.3",
+  "main": "causeeffect",
   "homepage": "http://github.com/olado/causeeffect",
   "repository": "git://github.com/olado/causeeffect.git",
   "author": "Laura Doktorova <ldoktorova@gmail.com>",
-  "engines": [
-    "node >=0.2.6"
-  ]
+  "engines": [ "node >=0.2.6" ]
 }
