@@ -9,14 +9,14 @@
 */
 
 (function() {
-	var sys = require("sys"),
+	var util = require('util'),
 		events = require('events');
 
 	function CauseEffect() {
 		events.EventEmitter.call(this);
 		this.events = {};
 	}
-	sys.inherits(CauseEffect, events.EventEmitter);
+	util.inherits(CauseEffect, events.EventEmitter);
 
 	exports.version = '0.1.0';
 	exports.CauseEffect = CauseEffect;
