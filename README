@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/olado/causeeffect.png)](http://travis-ci.org/olado/causeeffect)
 Created to simplify flow management when programming in asynchronous
 environments like nodejs.
 
